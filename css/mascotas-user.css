@@ -1,0 +1,861 @@
+/* Hero Section */
+.hero-image {
+  background-image: url('../image/fondo-principal2.png'); /* Ruta de la imagen */
+  background-size: cover; /* La imagen cubre toda la sección */
+  background-position: center; /* Centrar la imagen */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  display: flex;
+  align-items: center; /* Centrar verticalmente el contenido */
+  justify-content: center; /* Centrar horizontalmente el contenido */
+  position: relative; /* Para permitir superposiciones */
+  color: white; /* Texto blanco para contraste */
+}
+
+/* Superposición de color para mayor legibilidad */
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  z-index: 1; /* Coloca la superposición debajo del contenido */
+}
+
+/* Ajustes para el texto */
+.hero-image .container {
+  z-index: 2; /* Coloca el contenido sobre la superposición */
+}
+
+.hero-image h1 {
+  font-size: 3rem; /* Tamaño del título */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Sombra para mayor visibilidad */
+}
+
+.hero-image p {
+  font-size: 1.25rem;
+  margin-top: 10px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Sombra para mayor visibilidad */
+}
+
+.hero-image .btn {
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  border-radius: 50px;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero-image h1 {
+    font-size: 2rem;
+  }
+
+  .hero-image p {
+    font-size: 1rem;
+  }
+
+  .hero-image .btn {
+    font-size: 1rem;
+    padding: 8px 20px;
+  }
+}
+
+
+  /* ===== Ajustes de la barra de navegación ===== */
+.navbar-nav {
+  display: flex;
+  margin-left: auto; /* Alinea a la derecha */
+  justify-content: center; /* Centra los elementos */
+  gap: 20px; /* Espaciado limpio entre los elementos */
+}
+
+.navbar-nav li {
+  padding: 0; /* Eliminamos el padding horizontal aquí */
+}
+
+.navbar-nav li a {
+  color: #673ab7; /* Color inicial */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem; /* Usar rem para mejor adaptabilidad */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease; /* Añadir transición a letter-spacing */
+  margin: 5px 0;
+}
+
+.navbar-nav li a:hover {
+  color: #512da8; /* Color de hover */
+  transform: scale(1.1);
+  letter-spacing: 2px; /* Aumentar el espaciado de las letras al pasar el mouse */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; /* Apilar los elementos en pantallas pequeñas */
+    gap: 15px; /* Espaciado vertical */
+    align-items: center; /* Centrar los enlaces */
+  }
+
+  .navbar-nav li a {
+    font-size: 1rem; /* Ajustar el tamaño de fuente para pantallas pequeñas */
+  }
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: #fef8e7; /* Color de fondo piel claro */
+  color: #222; /* Color de texto oscuro con mejor contraste */
+  padding: 40px 20px;
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  margin-top: auto; /* Esto asegura que el footer se quede al fondo */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.footer h6 {
+  font-size: 1rem; /* Usar rem para mejor escalabilidad */
+  font-weight: bold;
+  margin-bottom: 1rem; /* Espaciado adecuado */
+}
+
+.footer p,
+.footer ul {
+  font-size: 0.875rem; /* Tamaño relativo */
+  margin: 0;
+  line-height: 1.5;
+  margin-bottom: 1rem; /* Espaciado entre párrafos y listas */
+}
+
+.footer ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.footer ul li {
+  margin-bottom: 0.625rem; /* Espaciado entre los elementos de la lista */
+}
+
+.footer a {
+  color: #222; /* Asegura que los enlaces sean de color oscuro */
+  text-decoration: none; /* Elimina el subrayado por defecto */
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #673ab7; /* Color de hover */
+}
+
+/* ===== Footer en columnas ===== */
+.footer-columns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.footer-columns div {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.footer-columns ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-columns h6 {
+  margin-bottom: 1rem;
+}
+
+/* ===== Responsivo para dispositivos pequeños ===== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px;
+  }
+
+  .footer-columns {
+    flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+    align-items: center; /* Centra los contenidos */
+  }
+
+  .footer-columns div {
+    margin-bottom: 1rem; /* Espaciado entre las columnas */
+    text-align: center; /* Centra el texto dentro de cada columna */
+  }
+
+  .footer h6 {
+    font-size: 1.125rem; /* Ajuste del tamaño de fuente */
+  }
+
+  .footer p,
+  .footer ul {
+    font-size: 0.875rem; /* Ajuste proporcional */
+  }
+}
+
+.text-purple {
+  color: #673ab7; /* Color púrpura para los títulos  sirve*/
+}
+/*navbar y footer y foto inicial y texto morado*/
+
+
+
+
+
+
+
+  
+ /* ===== Tabla mejorada ===== */
+.table {
+  margin: 40px 0; /* Espaciado superior e inferior */
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+  border-collapse: collapse; /* Elimina el espacio entre las celdas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor de la tabla */
+}
+
+.table th,
+.table td {
+  padding: 12px 15px; /* Aumenta el espaciado dentro de las celdas */
+  text-align: left; /* Alinea el texto a la izquierda */
+  border: 1px solid #ddd; /* Borde de las celdas */
+}
+
+.table th {
+  background-color: #673ab7; /* Color de fondo para los encabezados */
+  color: white; /* Color de texto para los encabezados */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Color alterno para las filas */
+}
+
+.table tr:hover {
+  background-color: #f0f8ff; /* Color de fondo al pasar el mouse sobre una fila */
+  cursor: pointer; /* Cambia el cursor cuando se pasa sobre una fila */
+}
+
+.table-primary {
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* ===== Responsivo para dispositivos pequeños ===== */
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px; /* Ajusta el tamaño de fuente en pantallas más pequeñas */
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 10px; /* Reducir el padding para pantallas más pequeñas */
+  }
+}
+
+  
+  /* ===== Botones ===== */
+.btn-warning,
+.btn-danger,
+.btn-purple {
+  color: #fff;
+  padding: 12px 24px; /* Ajustar padding para botones más grandes */
+  border-radius: 30px; /* Bordes más redondeados */
+  text-transform: uppercase; /* Hace que el texto sea más uniforme */
+  font-weight: bold; /* Aumenta la visibilidad del texto */
+  transition: all 0.3s ease; /* Transición para todos los cambios */
+  margin-right: 10px; /* Espaciado horizontal */
+  border: none; /* Sin borde por defecto */
+}
+
+.btn-warning,
+.btn-outline-warning {
+  background-color: #ffa726; /* Color de fondo */
+  border-color: #ffa726; /* Color del borde */
+}
+
+.btn-danger,
+.btn-outline-danger {
+  background-color: #ef5350; /* Color de fondo */
+  border-color: #ef5350; /* Color del borde */
+}
+
+/* Botones de borde (outline) */
+.btn-outline-warning,
+.btn-outline-danger {
+  background-color: transparent;
+  color: #ffa726; /* Color del texto */
+  border: 2px solid #ffa726;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover,
+.btn-outline-danger:hover {
+  background-color: #ffa726; /* Fondo cuando se pasa el mouse */
+  color: white; /* Texto blanco */
+  border-color: #ffa726;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+  transform: scale(1.05); /* Aumento suave en tamaño */
+}
+
+/* Hover para botones normales */
+.btn-warning:hover,
+.btn-danger:hover {
+  transform: scale(1.05); /* Aumento suave */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+}
+
+/* Botón púrpura */
+.btn-purple {
+  background-color: #6a0dad;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  margin: 10px 5px;
+  margin-bottom: 100px;
+  
+}
+
+.btn-purple:hover {
+  background-color: #5c0ba8; /* Cambio de color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+  transform: scale(1.05); /* Efecto de aumento */
+}
+
+/* Responsivo para dispositivos pequeños */
+@media (max-width: 768px) {
+  .btn-warning,
+  .btn-danger,
+  .btn-purple {
+    padding: 10px 18px; /* Ajuste de padding para pantallas pequeñas */
+    font-size: 14px; /* Ajuste del tamaño de la fuente */
+  }
+}
+
+  
+  /* ===== Formularios ===== */
+form .form-control {
+  padding: 12px 16px; /* Espaciado cómodo dentro del campo */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid #ddd; /* Borde sutil por defecto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del campo */
+  margin-bottom: 20px; /* Espaciado inferior entre campos */
+  transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+
+form .form-control:focus {
+  border-color: #6a0dad; /* Borde morado cuando el campo está enfocado */
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.5); /* Sombra morada en el enfoque */
+  outline: none; /* Eliminar el contorno predeterminado */
+}
+
+form .form-control:hover {
+  border-color: #6a0dad; /* Borde morado en hover */
+  box-shadow: 0 0 8px rgba(106, 13, 173, 0.3); /* Sombra sutil al pasar el mouse */
+}
+
+form .form-control:disabled {
+  background-color: #f0f0f0; /* Fondo gris para campos deshabilitados */
+  border-color: #ccc; /* Borde más claro */
+  box-shadow: none; /* Eliminar la sombra cuando está deshabilitado */
+}
+
+form input[type="checkbox"],
+form input[type="radio"] {
+  width: auto; /* Asegura que los checkboxes y radios no sean demasiado grandes */
+  margin-right: 10px; /* Espaciado entre el checkbox y la etiqueta */
+}
+
+form .form-control::placeholder {
+  color: #888; /* Color del texto del placeholder */
+  font-style: italic; /* Estilo en cursiva para el texto del placeholder */
+}
+
+/* ===== Responsivo para dispositivos pequeños ===== */
+@media (max-width: 768px) {
+  form .form-control {
+    padding: 10px 14px; /* Reducir padding en pantallas más pequeñas */
+    font-size: 14px; /* Reducir el tamaño de la fuente */
+  }
+}
+
+  
+  /* ===== Sección de estadísticas ===== */
+.stats-area {
+  background-color: #f9f9f9; /* Fondo claro para contraste */
+  padding: 60px 20px;
+  margin-bottom: 40px;
+  text-align: center; /* Alinea todo el contenido al centro */
+}
+
+.single-stats {
+  margin: 20px;
+  padding: 40px;
+  border-radius: 12px; /* Bordes más redondeados */
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más sutil */
+  transition: transform 0.3s ease-in-out; /* Efecto de transición para el bloque */
+}
+
+.single-stats:hover {
+  transform: translateY(-10px); /* Efecto de levantamiento al hacer hover */
+}
+
+.single-stats img {
+  max-width: 80%; /* Limita el tamaño máximo de la imagen */
+  border-radius: 50%; /* Imagen circular */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+.single-stats img:hover {
+  transform: scale(1.1); /* Efecto de aumento de imagen */
+}
+
+.single-stats h2 {
+  font-weight: 600; /* Peso de fuente más ligero para un estilo moderno */
+  font-size: 40px; /* Tamaño más pequeño pero legible */
+  margin-bottom: 15px; /* Espaciado debajo del título */
+  color: #333; /* Color oscuro para mayor contraste */
+}
+
+.single-stats p {
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  font-size: 18px; /* Tamaño de fuente ajustado para mayor legibilidad */
+  color: #555; /* Color gris oscuro para el texto */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .single-stats {
+    padding: 20px 15px; /* Menos padding en pantallas pequeñas */
+  }
+  
+  .single-stats h2 {
+    font-size: 30px; /* Ajuste de tamaño para pantallas pequeñas */
+  }
+  
+  .single-stats p {
+    font-size: 16px; /* Ajuste del tamaño del texto en pantallas pequeñas */
+  }
+}
+ 
+  /* ===== Fondo de la sección con imagen del perro ===== */
+.section-background {
+  background-image: url('../image/fondo-principal.png');
+  background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  background-attachment: scroll; /* Cambiado a 'scroll' para mayor compatibilidad */
+  padding: 60px 20px; /* Espaciado interno para que el contenido no quede pegado a los bordes */
+  color: white; /* Asegúrate de que el texto sea legible sobre el fondo */
+  position: relative;
+}
+
+/* Fondo semi-transparente para mejorar la legibilidad sobre la imagen */
+.section-background .stats-area {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+  padding: 60px 20px;
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra para mejorar la visibilidad */
+  max-width: 100%; /* Asegurarse de que el fondo cubra bien el área */
+  margin: 0 auto; /* Centra el área */
+}
+
+/* ===== Ajustes para las imágenes dentro de los stats ===== */
+.single-stats img {
+  max-width: 90%; /* Limita el tamaño de la imagen */
+  height: auto; /* Asegura que la imagen no se deforme */
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+.single-stats img:hover {
+  transform: scale(1.1); /* Efecto de aumento */
+}
+
+/* ===== Espaciado y márgenes ===== */
+.section-spacing {
+  margin: 60px 0;
+}
+
+.section-padding {
+  padding: 40px 20px;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Sección Hero */
+.hero {
+  background-color: #673ab7;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.service-btn {
+  background-color: #ff9800;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero-image-left, .hero-image-right {
+  position: absolute;
+  top: 10%;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.hero-image-left {
+  left: 5%;
+}
+
+.hero-image-right {
+  right: 5%;
+}
+
+/* ===== Imágenes en Hero Section ===== */
+.hero-image-left, .hero-image-right {
+  position: absolute;
+  top: 20%;
+  width: 220px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  border: 3px solid white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image-left {
+  left: 5%;
+}
+
+.hero-image-right {
+  right: 5%;
+}
+
+/* Animación de hover */
+.hero-image-left:hover, .hero-image-right:hover {
+  transform: scale(1.1); /* Agrandar la imagen */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumentar la sombra */
+}
+
+/* ===== Responsivo para pantallas pequeñas ===== */
+@media (max-width: 768px) {
+  /* Ajustes en las imágenes */
+  .hero-image-left, .hero-image-right {
+    width: 100px; /* Reducir el tamaño de las imágenes en pantallas pequeñas */
+    top: 15%; /* Ajustar posición vertical */
+  }
+
+  /* Ajustes en el título */
+  .hero h1 {
+    font-size: 1.8rem; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+    margin-top: 20px;
+  }
+
+  /* Ajustes en los botones del hero */
+  .service-btn {
+    font-size: 16px; /* Ajuste del tamaño de la fuente */
+    padding: 8px 15px; /* Ajuste del padding */
+  }
+
+  /* Ajustes en los botones de acción */
+  .form-actions {
+    flex-direction: column; /* Coloca los botones en una columna */
+    align-items: stretch; /* Alinea los botones al ancho completo */
+  }
+
+  .form-actions button {
+    width: 100%; /* Asegura que los botones ocupen el 100% del ancho */
+    margin-bottom: 10px; /* Añade espacio entre botones */
+  }
+}
+
+
+
+
+
+/* ===== Formulario ===== */
+.form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px; /* Bordes más redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  transition: all 0.3s ease; /* Transición para animar los cambios */
+}
+
+.form-container:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte cuando se pasa el mouse */
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem; /* Tamaño de fuente más grande */
+  font-weight: 600;
+  color: #333; /* Color del título */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333; /* Color de texto más oscuro para legibilidad */
+}
+
+input[type="text"], input[type="number"], select {
+  width: 100%;
+  padding: 12px; /* Más espacio interno para una mejor experiencia */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+  outline-color: #673ab7;
+  border-color: #673ab7;
+  box-shadow: 0 0 8px rgba(103, 58, 183, 0.4); /* Efecto de sombra más visible en el enfoque */
+}
+
+/* Estilo de los botones */
+button {
+  background-color: #673ab7;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  
+}
+
+button:hover {
+  background-color: #512da8; /* Cambio de color al pasar el mouse */
+  transform: scale(1.05); /* Efecto de aumento */
+}
+
+/* Estilos para la validación de formulario */
+input:invalid, select:invalid {
+  border-color: #e57373; /* Rojo para campos inválidos */
+}
+
+input:valid, select:valid {
+  border-color: #81c784; /* Verde para campos válidos */
+}
+
+/* ===== Responsivo para dispositivos pequeños ===== */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px; /* Menos padding en pantallas pequeñas */
+    max-width: 90%; /* Aseguramos que el formulario no sea demasiado ancho */
+  }
+
+  input[type="text"], input[type="number"], select {
+    padding: 10px; /* Ajuste en el padding */
+  }
+}
+
+
+/* ===== Botones de acción ===== */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Asegura que los botones estén alineados verticalmente */
+  gap: 10px; /* Espacio entre botones */
+  margin-top: 20px; /* Margen superior para los botones */
+}
+
+button {
+  padding: 12px 25px; /* Aumenta el padding para un mejor clic */
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px; /* Bordes más redondeados para un estilo más moderno */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transición para todos los efectos */
+}
+
+.btn-save {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #45a049; /* Oscurecer el botón al pasar el cursor */
+  transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #e53935; /* Oscurecer el botón al pasar el cursor */
+  transform: translateY(-2px);
+}
+
+.btn-cancel {
+  background-color: #9e9e9e;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #757575; /* Oscurecer el botón al pasar el cursor */
+  transform: translateY(-2px);
+}
+
+.form-container {
+  background-color: #f8f9fa; /* Fondo claro */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  color: #8e44ad; /* Color morado para el título */
+  font-weight: bold;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form-actions button {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.btn-purple {
+  background-color: #8e44ad;
+  border: none;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #7d3c9c;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.btn-secondary {
+  background-color: #bdc3c7;
+  border: none;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #95a5a6;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 0; /* Ajusta el padding a tus necesidades */
+  background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Degradado de color */
+}
+
+.hero .hero-image-container {
+  width: 40%;
+}
+
+.hero .hero-image-left,
+.hero .hero-image-right {
+  max-width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-center {
+  padding: 0 2rem; /* Espaciado horizontal para el texto */
+}
+
+.text-purple {
+  color: #6f42c1; /* Color morado para el texto */
+}
+
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.btn-purple:hover {
+  background-color: #5a2f97;
+  transition: background-color 0.3s ease;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+.animate-scale {
+  transform: scale(0.8);
+  animation: scaleIn 0.5s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scaleIn {
+  to {
+    transform: scale(1);
+  }
+}
+.moment-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+

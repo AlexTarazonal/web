@@ -1,0 +1,185 @@
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+
+.navbar {
+    margin-bottom: 40px;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #007bff !important;
+    color: #fff !important;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+h1,
+h3 {
+    color: #333;
+}
+
+
+section {
+    margin-bottom: 40px;
+}
+
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table td, .table th {
+    padding: 12px;
+    text-align: center;
+}
+
+.table .btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+.table .btn-warning:hover {
+    background-color: #e0a800;
+}
+
+button#exportarPDF,
+button#exportarExcel {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button#exportarPDF {
+    background-color: #ff7043;
+    color: white;
+}
+
+button#exportarPDF:hover {
+    background-color: #ff5722;
+}
+
+button#exportarExcel {
+    background-color: #4caf50;
+    color: white;
+}
+
+button#exportarExcel:hover {
+    background-color: #45a049;
+}
+
+
+#informesGenerados ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#informesGenerados li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+#facturaGenerada ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#facturaGenerada li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+input[type="text"],
+input[type="number"],
+button {
+    width: 100%;
+}
+
+button[type="submit"] {
+    width: auto;
+    margin-left: auto;
+    display: block;
+}
+
+
+#formFactura {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#formFactura .form-control {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#formFactura button[type="submit"] {
+    width: auto;
+    margin-left: auto;
+    display: block;
+    background-color: #007bff;
+    color: white;
+}
+
+#formFactura button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#facturaGenerada {
+    padding: 20px;
+    background-color: #e9f7fd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#facturaGenerada ul li {
+    margin-bottom: 10px;
+}
+
+#facturaGenerada span {
+    font-weight: bold;
+}

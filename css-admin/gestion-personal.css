@@ -1,0 +1,181 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabecera y navegación */
+nav {
+    margin-bottom: 20px;
+}
+
+/* Sección de gestión */
+section {
+    margin: 20px;
+}
+
+/* Estilo de las tablas */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.tabla th, .tabla td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos de los botones */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Estilos del formulario */
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+}
+
+.modal-content input, .modal-content select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    margin-top: 10px;
+}
+
+.modal-content button:first-child {
+    margin-right: 10px;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .tabla th, .tabla td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+  /* ===== Ajustes de la barra de navegación ===== */
+  .navbar-nav {
+    display: flex;
+    margin-left: auto; /* Alinea a la derecha */
+    justify-content: center; /* Centra los elementos */
+    gap: 20px; /* Espaciado limpio entre los elementos */
+  }
+  
+  .navbar-nav li {
+    padding: 0; /* Eliminamos el padding horizontal aquí */
+  }
+  
+  .navbar-nav li a {
+    color: #673ab7; /* Color inicial */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem; /* Usar rem para mejor adaptabilidad */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease; /* Añadir transición a letter-spacing */
+    margin: 5px 0;
+  }
+  
+  .navbar-nav li a:hover {
+    color: #512da8; /* Color de hover */
+    transform: scale(1.1);
+    letter-spacing: 2px; /* Aumentar el espaciado de las letras al pasar el mouse */
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column; /* Apilar los elementos en pantallas pequeñas */
+      gap: 15px; /* Espaciado vertical */
+      align-items: center; /* Centrar los enlaces */
+    }
+  
+    .navbar-nav li a {
+      font-size: 1rem; /* Ajustar el tamaño de fuente para pantallas pequeñas */
+    }
+  }
+  

@@ -1,0 +1,311 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+  /* ===== Ajustes de la barra de navegación ===== */
+  .navbar-nav {
+    display: flex;
+    margin-left: auto; /* Alinea a la derecha */
+    justify-content: center; /* Centra los elementos */
+    gap: 20px; /* Espaciado limpio entre los elementos */
+  }
+  
+  .navbar-nav li {
+    padding: 0; /* Eliminamos el padding horizontal aquí */
+  }
+  
+  .navbar-nav li a {
+    color: #673ab7; /* Color inicial */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem; /* Usar rem para mejor adaptabilidad */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease; /* Añadir transición a letter-spacing */
+    margin: 5px 0;
+  }
+  
+  .navbar-nav li a:hover {
+    color: #512da8; /* Color de hover */
+    transform: scale(1.1);
+    letter-spacing: 2px; /* Aumentar el espaciado de las letras al pasar el mouse */
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column; /* Apilar los elementos en pantallas pequeñas */
+      gap: 15px; /* Espaciado vertical */
+      align-items: center; /* Centrar los enlaces */
+    }
+  
+    .navbar-nav li a {
+      font-size: 1rem; /* Ajustar el tamaño de fuente para pantallas pequeñas */
+    }
+  }
+  
+  /* ===== Footer ===== */
+  .footer {
+    background-color: #fef8e7; /* Color de fondo piel claro */
+    color: #222; /* Color de texto oscuro con mejor contraste */
+    padding: 40px 20px;
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    margin-top: auto; /* Esto asegura que el footer se quede al fondo */
+    text-align: center; /* Alinea el texto al centro */
+  }
+  
+  .footer h6 {
+    font-size: 1rem; /* Usar rem para mejor escalabilidad */
+    font-weight: bold;
+    margin-bottom: 1rem; /* Espaciado adecuado */
+  }
+  
+  .footer p,
+  .footer ul {
+    font-size: 0.875rem; /* Tamaño relativo */
+    margin: 0;
+    line-height: 1.5;
+    margin-bottom: 1rem; /* Espaciado entre párrafos y listas */
+  }
+  
+  .footer ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  
+  .footer ul li {
+    margin-bottom: 0.625rem; /* Espaciado entre los elementos de la lista */
+  }
+  
+  .footer a {
+    color: #222; /* Asegura que los enlaces sean de color oscuro */
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #673ab7; /* Color de hover */
+  }
+  
+  /* ===== Footer en columnas ===== */
+  .footer-columns {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+  
+  .footer-columns div {
+    flex: 1;
+    padding: 0 1rem;
+  }
+  
+  .footer-columns ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .footer-columns h6 {
+    margin-bottom: 1rem;
+  }
+  
+  /* ===== Responsivo para dispositivos pequeños ===== */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 20px 10px;
+    }
+  
+    .footer-columns {
+      flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+      align-items: center; /* Centra los contenidos */
+    }
+  
+    .footer-columns div {
+      margin-bottom: 1rem; /* Espaciado entre las columnas */
+      text-align: center; /* Centra el texto dentro de cada columna */
+    }
+  
+    .footer h6 {
+      font-size: 1.125rem; /* Ajuste del tamaño de fuente */
+    }
+  
+    .footer p,
+    .footer ul {
+      font-size: 0.875rem; /* Ajuste proporcional */
+    }
+  }
+  
+  .text-purple {
+    color: #673ab7; /* Color púrpura para los títulos  sirve*/
+  }
+
+/* Botones */
+.btn-success, .btn-danger, .btn-primary {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #e9ecef;
+}
+
+table td {
+    color: #555;
+}
+
+/* Modales */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: none;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* Formulario */
+#formFactura input,
+#formFactura select,
+#formFactura button {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+#formFactura select:focus,
+#formFactura input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#formFactura button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+#formFactura button:hover {
+    background-color: #218838;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+/* Estilos para los títulos */
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+/* Estilos de la barra lateral */
+.container h3 {
+    text-align: center;
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Carriles laterales de la factura y carrito */
+#carrito,
+#informacionFactura {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    padding: 15px;
+}
+
+/* Estilo para los elementos del historial de facturas */
+#historialFacturas {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Títulos en la tabla de facturas */
+#historialFacturas h4 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}

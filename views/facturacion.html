@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Facturación</title>
+    <link rel="stylesheet" href="../css/facturacion.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Encabezado con la barra de navegación -->
+<header class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light container-fluid">
+      <!-- Logo y Nombre -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="../image/logo1.png" alt="Logo" class="me-2" width="100">
+        <h4 class="m-0">Happy Pet Care</h4>
+      </a>
+
+      <!-- Opciones del Menú -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="clientes.html"><i class="fa-solid fa-house"></i>Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="mascotas_user.html"><i class="fa-solid fa-users"></i> Mascotas</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="citas-servicios.html"><i class="fa-solid fa-paw"></i> Citas y Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="facturacion.html"><i class="fa-solid fa-cash-register"></i>Facturación</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="historial-clinico.html"><i class="fa-solid fa-hospital"></i> Historial Clínico</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0"  href="tratamientos.html"><i class="fa-solid fa-bell"></i>Tratamientos</a>
+        </ul>
+      </div>
+    </nav>
+<div class="container mt-4">
+    <h2 class="display-4 mb-4 text-center">Gestión de Facturación</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Carrito de Pago</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Producto/Servicio</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Total</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carrito">
+                        <tr>
+                            <td>Producto A</td>
+                            <td>2</td>
+                            <td>$50</td>
+                            <td>$100</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="eliminarProducto(this)">Eliminar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Producto B</td>
+                            <td>1</td>
+                            <td>$50</td>
+                            <td>$50</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="eliminarProducto(this)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success w-100" id="btnGenerarFactura" data-bs-toggle="modal" data-bs-target="#modalFactura" disabled>Generar Factura</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Información de Factura</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Número de Factura: <span id="numeroFactura">0001</span></li>
+                <li class="list-group-item">Cliente: <span id="clienteFacturaInfo">Seleccionar cliente</span></li>
+                <li class="list-group-item">Monto Total: <span id="montoTotal">$150</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+    <h4>Historial de Facturas</h4>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Número de Factura</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Juan Pérez</td>
+                    <td>2024-11-11</td>
+                    <td>$150</td>
+                    <td><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalVerFactura" onclick="verFactura(1)">Ver</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="modalFactura" tabindex="-1" aria-labelledby="modalFacturaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalFacturaLabel">Generar Factura</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formFactura">
+                    <div class="mb-3">
+                        <label for="clienteFactura" class="form-label">Cliente</label>
+                        <select class="form-control" id="clienteFactura" required onchange="autocompletarCliente()">
+                            <option value="">Seleccione un cliente</option>
+                            <option value="1">Juan Pérez</option>
+                            <option value="2">Ana García</option>
+                            <option value="3">Luis Martín</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="montoFactura" class="form-label">Monto</label>
+                        <input type="number" class="form-control" id="montoFactura" disabled>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" onclick="finalizarFactura(event)">Generar Factura</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalVerFactura" tabindex="-1" aria-labelledby="modalVerFacturaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalVerFacturaLabel">Detalles de la Factura</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="detallesFactura">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const clientes = {
+        1: { nombre: 'Juan Pérez', direccion: 'Calle Ficticia 123', telefono: '123456789' },
+        2: { nombre: 'Ana García', direccion: 'Avenida Siempre Viva 456', telefono: '987654321' },
+        3: { nombre: 'Luis Martín', direccion: 'Paseo de la Reforma 789', telefono: '112233445' }
+    };
+
+    function autocompletarCliente() {
+        const clienteId = document.getElementById('clienteFactura').value;
+        if (clienteId) {
+            const cliente = clientes[clienteId];
+            document.getElementById('clienteFacturaInfo').innerText = cliente.nombre;
+        }
+    }
+
+    function verFactura(facturaId) {
+        const facturaDetalles = `
+            <strong>Factura ID:</strong> ${facturaId} <br>
+            <strong>Cliente:</strong> Juan Pérez <br>
+            <strong>Fecha:</strong> 2024-11-11 <br>
+            <strong>Monto:</strong> $150 <br>
+            <strong>Productos:</strong> <br>
+            - Producto A x2 ($50) <br>
+            - Producto B x1 ($50)
+        `;
+        document.getElementById('detallesFactura').innerHTML = facturaDetalles;
+    }
+
+    function finalizarFactura(event) {
+        event.preventDefault();
+        const clienteId = document.getElementById('clienteFactura').value;
+        if (!clienteId) {
+            alert('Por favor, seleccione un cliente');
+            return;
+        }
+        alert('Factura generada correctamente');
+    }
+
+    function eliminarProducto(button) {
+        const row = button.closest('tr');
+        row.remove();
+    }
+</script>
+
+</body>
+</html>

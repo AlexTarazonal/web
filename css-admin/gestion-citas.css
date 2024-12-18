@@ -1,0 +1,124 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 30px auto; /* Espaciado superior */
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    margin-bottom: 30px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: #ff5733 !important;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Sección de filtros */
+#filtrosFechas h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#filtrosFechas .form-label {
+    font-weight: 600;
+}
+
+#filtrarFechas {
+    font-weight: 600;
+}
+
+/* Sección de calendario */
+#calendario h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Modales */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+}
+
+.modal-header .btn-close {
+    color: white;
+}
+
+.modal-body .form-label {
+    font-weight: 600;
+}
+
+.modal-body .form-control {
+    margin-bottom: 15px;
+}
+
+/* Estilos de botones dentro de los modales */
+.modal-footer .btn {
+    font-weight: 600;
+}
+
+#eliminarCita {
+    background-color: #dc3545;
+    border: none;
+}
+
+#eliminarCita:hover {
+    background-color: #c82333;
+}
+
+#agregarCitaModal .modal-footer .btn-primary {
+    background-color: #28a745;
+}
+
+#agregarCitaModal .modal-footer .btn-primary:hover {
+    background-color: #218838;
+}
+
+/* Tabla de citas */
+table.dataTable {
+    border-collapse: collapse !important;
+}
+
+table.dataTable thead th {
+    font-weight: 600;
+    text-align: center;
+}
+
+table.dataTable tbody td {
+    text-align: center;
+}
+
+/* Estilo para las notificaciones de acción */
+.alert {
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+/* Espaciado adicional para el contenedor */
+.container {
+    margin-top: 30px;
+}

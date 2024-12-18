@@ -1,0 +1,97 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  h1, h3 {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .card-body {
+    padding: 20px;
+    font-size: 1rem;
+  }
+  
+  .card-body ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 1rem;
+  }
+  
+  .card-body a {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+
+  .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+  .bg-primary {
+    background-color: #007bff !important;
+  }
+  
+  .bg-info {
+    background-color: #17a2b8 !important;
+  }
+  
+  .bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  .bg-warning {
+    background-color: #ffc107 !important;
+  }
+  
+  .bg-danger {
+    background-color: #dc3545 !important;
+  }
+  
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-body h4 {
+    margin-bottom: 20px;
+  }
+  
+  .card-body a {
+    margin-top: 10px;
+  }
+  

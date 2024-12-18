@@ -1,0 +1,301 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+  /* ===== Ajustes de la barra de navegación ===== */
+.navbar-nav {
+  display: flex;
+  margin-left: auto; /* Alinea a la derecha */
+  justify-content: center; /* Centra los elementos */
+  gap: 20px; /* Espaciado limpio entre los elementos */
+}
+
+.navbar-nav li {
+  padding: 0; /* Eliminamos el padding horizontal aquí */
+}
+
+.navbar-nav li a {
+  color: #673ab7; /* Color inicial */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem; /* Usar rem para mejor adaptabilidad */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease; /* Añadir transición a letter-spacing */
+  margin: 5px 0;
+}
+
+.navbar-nav li a:hover {
+  color: #512da8; /* Color de hover */
+  transform: scale(1.1);
+  letter-spacing: 2px; /* Aumentar el espaciado de las letras al pasar el mouse */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; /* Apilar los elementos en pantallas pequeñas */
+    gap: 15px; /* Espaciado vertical */
+    align-items: center; /* Centrar los enlaces */
+  }
+
+  .navbar-nav li a {
+    font-size: 1rem; /* Ajustar el tamaño de fuente para pantallas pequeñas */
+  }
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: #fef8e7; /* Color de fondo piel claro */
+  color: #222; /* Color de texto oscuro con mejor contraste */
+  padding: 40px 20px;
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  margin-top: auto; /* Esto asegura que el footer se quede al fondo */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.footer h6 {
+  font-size: 1rem; /* Usar rem para mejor escalabilidad */
+  font-weight: bold;
+  margin-bottom: 1rem; /* Espaciado adecuado */
+}
+
+.footer p,
+.footer ul {
+  font-size: 0.875rem; /* Tamaño relativo */
+  margin: 0;
+  line-height: 1.5;
+  margin-bottom: 1rem; /* Espaciado entre párrafos y listas */
+}
+
+.footer ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.footer ul li {
+  margin-bottom: 0.625rem; /* Espaciado entre los elementos de la lista */
+}
+
+.footer a {
+  color: #222; /* Asegura que los enlaces sean de color oscuro */
+  text-decoration: none; /* Elimina el subrayado por defecto */
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #673ab7; /* Color de hover */
+}
+
+/* ===== Footer en columnas ===== */
+.footer-columns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.footer-columns div {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.footer-columns ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-columns h6 {
+  margin-bottom: 1rem;
+}
+
+/* ===== Responsivo para dispositivos pequeños ===== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px;
+  }
+
+  .footer-columns {
+    flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+    align-items: center; /* Centra los contenidos */
+  }
+
+  .footer-columns div {
+    margin-bottom: 1rem; /* Espaciado entre las columnas */
+    text-align: center; /* Centra el texto dentro de cada columna */
+  }
+
+  .footer h6 {
+    font-size: 1.125rem; /* Ajuste del tamaño de fuente */
+  }
+
+  .footer p,
+  .footer ul {
+    font-size: 0.875rem; /* Ajuste proporcional */
+  }
+}
+
+.text-purple {
+  color: #673ab7; /* Color púrpura para los títulos  sirve*/
+}
+
+/* Barra de navegación en pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center; /* Centrar los enlaces en dispositivos móviles */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1.2rem; /* Aumentar el tamaño de fuente en pantallas pequeñas */
+        padding: 15px 10px; /* Aumentar el espaciado */
+    }
+}
+
+
+
+
+
+
+/* Formularios */
+.form-label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Tabla */
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+th, td {
+    text-align: center;
+    padding: 1rem;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+td {
+    color: #333;
+}
+
+table .btn {
+    padding: 0.4rem 0.75rem;
+}
+
+/* Margenes */
+.mt-4 {
+    margin-top: 2rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+/* Cerrar sesión */
+button {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .btn-primary, .btn-danger {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}

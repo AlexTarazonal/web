@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Mascotas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css-admin/gestion-mascotas.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+
+<body>
+    <!-- Encabezado con la barra de navegación -->
+    <header class="bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../image/logo1.png" alt="Logo" class="me-2" width="100">
+                <h4 class="m-0">Happy Pet Care</h4>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="gestion-personal.html"><i class="fa-solid fa-users"></i> Gestión del Personal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="gestion-mascotas.html"><i class="fa-solid fa-paw"></i> Gestión de Mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="gestion-citas.html"><i class="fa-solid fa-hospital"></i> Gestión de Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="informes-ganancia.html"><i class="fa-solid fa-cash-register"></i> Informes de Ganancia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="configuracion.html"><i class="fa-solid fa-bell"></i> Configuraciones</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-5">
+        <h1 class="mb-4">Calendario y Gestión de Citas</h1>
+
+        <!-- Filtros por Fecha -->
+        <section id="filtrosFechas" class="mb-4">
+            <h3>Filtrar por Fecha</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+                    <input type="date" id="fechaInicio" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label for="fechaFin" class="form-label">Fecha de Fin</label>
+                    <input type="date" id="fechaFin" class="form-control" />
+                </div>
+            </div>
+            <button id="filtrarFechas" class="btn btn-primary mt-3">Filtrar</button>
+        </section>
+
+        <!-- Agregar Nueva Cita -->
+        <section id="agregarCitaSeccion" class="mb-4">
+            <h3>Agregar Nueva Cita</h3>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarCitaModal">
+                Agregar Cita
+            </button>
+        </section>
+
+        <!-- Calendario -->
+        <section id="calendario">
+            <h2>Calendario de Citas</h2>
+            <div id="calendar"></div>
+        </section>
+
+        <!-- Modal Agregar Cita -->
+        <div class="modal fade" id="agregarCitaModal" tabindex="-1" aria-labelledby="agregarCitaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="agregarCitaModalLabel">Agregar Nueva Cita</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formCita">
+                            <div class="mb-3">
+                                <label for="nombreCliente" class="form-label">Cliente</label>
+                                <input type="text" class="form-control" id="nombreCliente" placeholder="Nombre del cliente" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="nombreMascota" class="form-label">Mascota</label>
+                                <input type="text" class="form-control" id="nombreMascota" placeholder="Nombre de la mascota" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaCita" class="form-label">Fecha y Hora</label>
+                                <input type="datetime-local" class="form-control" id="fechaCita" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="veterinarioAsignado" class="form-label">Veterinario Asignado</label>
+                                <input type="text" class="form-control" id="veterinarioAsignado" placeholder="Nombre del veterinario" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar Cita</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Editar Cita -->
+        <div class="modal fade" id="editarCitaModal" tabindex="-1" aria-labelledby="editarCitaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editarCitaModalLabel">Editar Cita</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formEditarCita">
+                            <div class="mb-3">
+                                <label for="editarCliente" class="form-label">Cliente</label>
+                                <input type="text" class="form-control" id="editarCliente" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="editarMascota" class="form-label">Mascota</label>
+                                <input type="text" class="form-control" id="editarMascota" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="editarFechaCita" class="form-label">Fecha y Hora</label>
+                                <input type="datetime-local" class="form-control" id="editarFechaCita" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                        <button id="eliminarCita" class="btn btn-danger mt-3">Eliminar Cita</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            let calendarEvents = [
+                {
+                    id: 1,
+                    title: 'Cita con el cliente Juan',
+                    start: '2024-11-29T10:00:00',
+                    description: 'Examen general',
+                    clientName: 'Juan Perez',
+                    petName: 'Fido',
+                    veterinarian: 'Dr. Alberto'
+                }
+                // Aquí puedes agregar más eventos
+            ];
+
+            $('#calendar').fullCalendar({
+                events: calendarEvents,
+                editable: true,
+                droppable: true,
+                eventClick: function (event) {
+                    $('#editarCitaModal').modal('show');
+                    $('#editarCliente').val(event.clientName);
+                    $('#editarMascota').val(event.petName);
+                    $('#editarFechaCita').val(event.start.format('YYYY-MM-DDTHH:mm'));
+                }
+            });
+
+            $('#formCita').submit(function (e) {
+                e.preventDefault();
+                let eventData = {
+                    title: $('#nombreCliente').val() + ' - ' + $('#nombreMascota').val(),
+                    start: $('#fechaCita').val(),
+                    clientName: $('#nombreCliente').val(),
+                    petName: $('#nombreMascota').val(),
+                    veterinarian: $('#veterinarioAsignado').val()
+                };
+                $('#calendar').fullCalendar('renderEvent', eventData);
+                $('#agregarCitaModal').modal('hide');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facturación, Pagos e Informes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../css-admin/informes-ganancia.css" />
+  </head>
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Gestión de Mascotas</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../css-admin/gestion-mascotas.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    </head>
+
+
+    <body>
+
+      <!-- Encabezado con la barra de navegación -->
+      <header class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light container-fluid">
+          <!-- Logo y Nombre -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="../image/logo1.png" alt="Logo" class="me-2" width="100">
+            <h4 class="m-0">Happy Pet Care</h4>
+          </a>
+
+          <!-- Opciones del Menú -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="gestion-personal.html"><i class="fa-solid fa-users"></i> Gestión del Personal</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="gestion-mascotas.html"><i class="fa-solid fa-paw"></i> Gestión de Mascotas</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="gestion-citas.html"><i class="fa-solid fa-hospital"></i> Gestión de Citas</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0" href="informes-ganancia.html"><i class="fa-solid fa-cash-register"></i> Informes de Ganancia</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-primary me-2 mb-2 mb-lg-0"  href="configuracion.html"><i class="fa-solid fa-bell"></i> Configuraciones</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+
+  
+ 
+
+    <!-- Contenido principal -->
+    <div class="container my-5">
+      <h1 class="mb-4">Facturación, Pagos e Informes</h1>
+
+      <!-- Generación de Facturas -->
+      <section id="generacionFacturas" class="mb-5">
+        <h3>Generación de Factura</h3>
+        <form id="formFactura">
+          <div class="mb-3">
+            <label for="cliente" class="form-label">Cliente</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cliente"
+              placeholder="Nombre del cliente"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="mascota" class="form-label">Mascota</label>
+            <input
+              type="text"
+              class="form-control"
+              id="mascota"
+              placeholder="Nombre de la mascota"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="servicio" class="form-label">Servicio</label>
+            <input
+              type="text"
+              class="form-control"
+              id="servicio"
+              placeholder="Descripción del servicio"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="costo" class="form-label">Costo</label>
+            <input
+              type="number"
+              class="form-control"
+              id="costo"
+              placeholder="Costo del servicio"
+            />
+          </div>
+          <button type="submit" class="btn btn-success">Generar Factura</button>
+        </form>
+        <div id="facturaGenerada" class="mt-4" style="display: none;">
+          <h4>Factura Generada:</h4>
+          <ul>
+            <li><strong>Cliente:</strong> <span id="facturaCliente"></span></li>
+            <li><strong>Mascota:</strong> <span id="facturaMascota"></span></li>
+            <li><strong>Servicio:</strong> <span id="facturaServicio"></span></li>
+            <li><strong>Costo:</strong> <span id="facturaCosto"></span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="gestionPagos" class="mb-5">
+        <h3>Gestión de Pagos</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Cliente</th>
+              <th scope="col">Estado de Pago</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaPagos">
+          </tbody>
+        </table>
+      </section>
+      <section id="informesFinancieros" class="mb-5">
+        <h3>Informes Financieros</h3>
+        <div class="row mb-4">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Ingresos Totales</h5>
+                <p class="h4">$15,000</p>
+                <p>Desde el inicio del año</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Citas Realizadas</h5>
+                <p class="h4">1,250</p>
+                <p>Total de citas este mes</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Servicios Más Demandados</h5>
+                <ul>
+                  <li>Vacunas: 350</li>
+                  <li>Exámenes de sangre: 200</li>
+                  <li>Consulta general: 500</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="verInformes" class="btn btn-primary">Ver Informes Detallados</button>
+        <div id="informesGenerados" class="mt-4" style="display: none;">
+          <h4>Informe Financiero:</h4>
+          <ul>
+            <li><strong>Ingresos Totales:</strong> $<span id="ingresosTotales">0</span></li>
+            <li><strong>Citas Realizadas:</strong> <span id="citasRealizadas">0</span></li>
+            <li><strong>Servicios Más Demandados:</strong> <span id="serviciosDemandados">Servicio A</span></li>
+            <li><strong>Pagos Pendientes:</strong> $<span id="pagosPendientes">0</span></li>
+          </ul>
+        </div>
+
+        <div id="graficoIngresos" class="mt-5">
+          <h5>Gráfico de Ingresos Mensuales</h5>
+          <canvas id="ingresosChart" width="400" height="300"></canvas>
+        </div>
+      </section>
+
+      <section id="exportarInformes" class="mb-5">
+        <h3>Exportar Informes</h3>
+        <button id="exportarPDF" class="btn btn-warning">Exportar a PDF</button>
+        <button id="exportarExcel" class="btn btn-info">Exportar a Excel</button>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.68/build/pdfmake.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.68/build/vfs_fonts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.0/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#formFactura").submit(function (e) {
+          e.preventDefault();
+          const cliente = $("#cliente").val();
+          const mascota = $("#mascota").val();
+          const servicio = $("#servicio").val();
+          const costo = $("#costo").val();
+
+          $("#facturaCliente").text(cliente);
+          $("#facturaMascota").text(mascota);
+          $("#facturaServicio").text(servicio);
+          $("#facturaCosto").text(costo);
+          $("#facturaGenerada").show();
+        });
+
+        const pagos = [
+          { cliente: "Juan Pérez", estado: "Completado" },
+          { cliente: "Ana López", estado: "Pendiente" },
+          { cliente: "Carlos Ruiz", estado: "Retrasado" },
+        ];
+
+        pagos.forEach((pago) => {
+          $("#tablaPagos").append(
+            `<tr>
+              <td>${pago.cliente}</td>
+              <td>${pago.estado}</td>
+              <td><button class="btn btn-warning">Recordatorio</button></td>
+            </tr>`
+          );
+        });
+
+        // Informes Financieros
+        $("#verInformes").click(function () {
+          $("#ingresosTotales").text("1200");
+          $("#citasRealizadas").text("25");
+          $("#serviciosDemandados").text("Vacunación");
+          $("#pagosPendientes").text("300");
+          $("#informesGenerados").show();
+        });
+
+        // Exportación a PDF
+        $("#exportarPDF").click(function () {
+          const docDefinition = {
+            content: [
+              { text: "Informe Financiero", style: "header" },
+              { text: "Ingresos Totales: $1200" },
+              { text: "Citas Realizadas: 25" },
+              { text: "Servicios Más Demandados: Vacunación" },
+              { text: "Pagos Pendientes: $300" },
+            ],
+            styles: {
+              header: { fontSize: 18, bold: true },
+            },
+          };
+          pdfMake.createPdf(docDefinition).download("informe_financiero.pdf");
+        });
+
+        $("#exportarExcel").click(function () {
+          const wb = XLSX.utils.book_new();
+          const ws = XLSX.utils.aoa_to_sheet([
+            ["Informe Financiero"],
+            ["Ingresos Totales", 1200],
+            ["Citas Realizadas", 25],
+            ["Servicios Más Demandados", "Vacunación"],
+            ["Pagos Pendientes", 300],
+          ]);
+          XLSX.utils.book_append_sheet(wb, ws, "Informe");
+          XLSX.writeFile(wb, "informe_financiero.xlsx");
+        });
+
+        const ctx = document.getElementById("ingresosChart").getContext("2d");
+        const ingresosChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+            datasets: [{
+              label: "Ingresos Mensuales",
+              data: [0,1500, 1300, 1450, 1600,3000],
+              fill: false,
+              borderColor: "rgba(75, 192, 192, 1)",
+              tension: 0.5,
+            }],
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
